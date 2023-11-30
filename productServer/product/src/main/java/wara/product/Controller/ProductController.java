@@ -95,7 +95,8 @@ public class ProductController {
 
     //옵션수정
     @PutMapping("/seller/option/{productId}")
-    public String optionModify(@PathVariable("productId") Long productId, @RequestPart OptionDTO optionDTO){
+    public String optionModify(@PathVariable("productId") Long productId,
+                               @RequestBody OptionDTO optionDTO){
         return productService.modifyOption(productId, optionDTO);
     }
 
