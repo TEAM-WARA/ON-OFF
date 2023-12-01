@@ -78,8 +78,9 @@ public class ProductController {
 
 
     // 옵션 등록
-    @PutMapping("/seller/option/add") //TODO:바코드 삭제 로직 필요함
-    public String optionRegistry(@RequestParam Long productId, @RequestPart OptionDTO optionDTO) throws URISyntaxException, IOException {
+    @PutMapping("/seller/option/add/product/{productId}") //TODO:바코드 삭제 로직 필요함
+    public String optionRegistry(@PathVariable("productId") Long productId,
+                                 @RequestBody OptionDTO optionDTO) throws URISyntaxException, IOException {
         productService.readOne(productId); //TODO: 상품이 존쟈하지 않는경우 처리
         return productService.addOption(productId,optionDTO);
     }
